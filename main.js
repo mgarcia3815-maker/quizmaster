@@ -1,23 +1,65 @@
-
 const formulario = document.querySelector('#formulario-inicio');
+const error = document.querySelector('#error');
+
+const campos = [
+    { selector: '#nombre', nombre: 'el nombre del estudiante' },
+    { selector: '#categoria', nombre: 'la categoría' },
+    { selector: '#dificultad', nombre: 'la dificultad' }
+];
+
+// Aviso si el usuario fue redirigido desde el cuestionario sin datos
+const aviso = sessionStorage.getItem('aviso');
+if (aviso) {
+    error.textContent = aviso;
+    sessionStorage.removeItem('aviso');
+}
+
+function limpiarErrores() {
+    campos.forEach(function(campo) {
+        const el = document.querySelector(campo.selector);
+        el.removeAttribute('aria-invalid');
+        el.removeAttribute('aria-describedby');
+    });
+}
+
+// Al corregir un campo, se retira su marca de error
+campos.forEach(function(campo) {
+    const el = document.querySelector(campo.selector);
+    el.addEventListener('input', function() {
+        if (el.value.trim() !== '') {
+            el.removeAttribute('aria-invalid');
+            el.removeAttribute('aria-describedby');
+        }
+    });
+});
 
 formulario.addEventListener('submit', function(evento) {
     evento.preventDefault();
+    limpiarErrores();
 
-    const nombre = document.querySelector('#nombre').value.trim();
-    const categoria = document.querySelector('#categoria').value;
-    const dificultad = document.querySelector('#dificultad').value;
+    const invalidos = campos.filter(function(campo) {
+        return document.querySelector(campo.selector).value.trim() === '';
+    });
 
-    const error = document.querySelector('#error');
+    if (invalidos.length > 0) {
+        const lista = invalidos.map(function(c) { return c.nombre; });
+        error.textContent = 'Falta completar: ' + lista.join(', ') + '.';
 
-    if (nombre === '' || categoria === '' || dificultad === '') {
-        error.textContent = 'Completa todos los campos para continuar.';
+        invalidos.forEach(function(campo) {
+            const el = document.querySelector(campo.selector);
+            el.setAttribute('aria-invalid', 'true');
+            el.setAttribute('aria-describedby', 'error');
+        });
+
+        document.querySelector(invalidos[0].selector).focus();
         return;
     }
 
-    sessionStorage.setItem('nombre', nombre);
-    sessionStorage.setItem('categoria', categoria);
-    sessionStorage.setItem('dificultad', dificultad);
+    error.textContent = '';
+
+    sessionStorage.setItem('nombre', document.querySelector('#nombre').value.trim());
+    sessionStorage.setItem('categoria', document.querySelector('#categoria').value);
+    sessionStorage.setItem('dificultad', document.querySelector('#dificultad').value);
 
     window.location.href = 'quiz.html';
 });

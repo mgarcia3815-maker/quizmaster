@@ -1,4 +1,3 @@
-
 const bancoPreguntas = {
     html: {
         facil: [
@@ -219,17 +218,11 @@ const dificultad = dificultadGuardada
     ? normalizarDificultad(dificultadGuardada)
     : "";
 
-// Verificar los datos
-if (
-    !nombre ||
-    !bancoPreguntas[categoria] ||
-    !bancoPreguntas[categoria][dificultad]
-) {
-    window.location.href = "index.html";
-}
+// Seleccionar preguntas según categoría y dificultad (sin lanzar errores si faltan datos)
+const preguntasDisponibles =
+    (bancoPreguntas[categoria] && bancoPreguntas[categoria][dificultad]) || [];
 
-// Seleccionar preguntas según categoría y dificultad
-const preguntasDisponibles = bancoPreguntas[categoria][dificultad];
+const datosValidos = Boolean(nombre) && preguntasDisponibles.length > 0;
 
 // Mezclar preguntas
 function mezclar(array) {
@@ -253,6 +246,7 @@ let respuestaProcesada = false;
 // Elementos HTML
 const saludo = document.querySelector("#saludo-estudiante");
 const progreso = document.querySelector("#progreso");
+const barraProgreso = document.querySelector("#barra-progreso");
 const barraInterior = document.querySelector("#barra-progreso-interior");
 const formulario = document.querySelector("#formulario-respuestas");
 const preguntaElemento = document.querySelector("#pregunta");
@@ -261,7 +255,9 @@ const mensaje = document.querySelector("#mensaje");
 const botonResponder = document.querySelector("#boton-responder");
 
 // Mostrar saludo
-saludo.textContent = `¡Vamos, ${nombre}! Demuestra lo que sabes.`;
+if (datosValidos) {
+    saludo.textContent = `¡Vamos, ${nombre}! Demuestra lo que sabes.`;
+}
 
 // Mostrar pregunta
 function mostrarPregunta() {
@@ -273,8 +269,11 @@ function mostrarPregunta() {
 
     progreso.textContent = `Pregunta ${indiceActual + 1} de ${preguntas.length}`;
 
-    barraInterior.style.width =
-        `${((indiceActual + 1) / preguntas.length) * 100}%`;
+    const porcentajeProgreso =
+        Math.round(((indiceActual + 1) / preguntas.length) * 100);
+
+    barraInterior.style.width = `${porcentajeProgreso}%`;
+    barraProgreso.setAttribute("aria-valuenow", porcentajeProgreso);
 
     const opcionesMezcladas = mezclar(preguntaActual.opciones);
 
@@ -306,6 +305,7 @@ formulario.addEventListener("submit", function(evento) {
             respuestaProcesada = false;
             mostrarPregunta();
             botonResponder.textContent = "Confirmar respuesta";
+            preguntaElemento.focus();
         } else {
             finalizarQuiz();
         }
@@ -346,6 +346,11 @@ formulario.addEventListener("submit", function(evento) {
         esCorrecta: esCorrecta
     });
 
+    // Bloquear las opciones para que la selección coincida con lo guardado
+    opcionesElemento
+        .querySelectorAll('input[name="respuesta"]')
+        .forEach(function(radio) { radio.disabled = true; });
+
     // Cambiar estado del cuestionario
     respuestaProcesada = true;
     botonResponder.textContent = "Siguiente pregunta";
@@ -367,5 +372,13 @@ function finalizarQuiz() {
     window.location.href = "resultados.html";
 }
 
-// Iniciar cuestionario
-mostrarPregunta();
+// Iniciar cuestionario o volver al inicio explicando el motivo
+if (datosValidos) {
+    mostrarPregunta();
+} else {
+    sessionStorage.setItem(
+        "aviso",
+        "Para comenzar, completa tus datos y elige una categoría y una dificultad."
+    );
+    window.location.replace("index.html");
+}

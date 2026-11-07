@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>QuizMaster | Cuestionario</title>
+
     <link rel="stylesheet" href="estilo.css">
     <script src="quiz.js" defer></script>
 </head>
@@ -11,7 +13,37 @@
 <body>
 
     <header>
-        <h1>QuizMaster</h1>
+        <div class="marca-quizmaster">
+            <svg class="logo-quizmaster"
+                 viewBox="0 0 100 100"
+                 aria-hidden="true"
+                 focusable="false"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <circle cx="45" cy="45" r="34"
+                        fill="none"
+                        stroke="#22D3EE"
+                        stroke-width="12"/>
+
+                <path d="M28 45 L41 58 L72 25"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-width="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+
+                <path d="M66 68 L87 89"
+                      fill="none"
+                      stroke="#22D3EE"
+                      stroke-width="12"
+                      stroke-linecap="round"/>
+            </svg>
+
+            <div class="marca-texto">
+                <h1>Quiz<span>Master</span></h1>
+                <p>Tu espacio para practicar programación</p>
+            </div>
+        </div>
 
         <nav aria-label="Navegación principal">
             <a href="index.html">Inicio</a>
@@ -20,33 +52,62 @@
         </nav>
     </header>
 
-    <main>
-        <section aria-labelledby="titulo-quiz">
+    <main class="quiz-main">
 
-            <h2 id="titulo-quiz">¡Demuestra lo que sabes!</h2>
+        <noscript><p class="aviso-js">Este cuestionario necesita JavaScript activado para funcionar.</p></noscript>
 
-            <p id="saludo-estudiante"></p>
+        <section class="quiz-contenedor" aria-labelledby="titulo-quiz">
 
-            <p id="progreso">Pregunta 1 de 3</p>
+            <div class="quiz-encabezado">
+                <div>
+                    <span class="quiz-etiqueta">MODO DE PRÁCTICA</span>
+                    <h2 id="titulo-quiz">¡Es hora de demostrar lo que sabes!</h2>
+                    <p id="saludo-estudiante">
+                        Prepárate para comenzar.
+                    </p>
+                </div>
 
-            <div id="barra-progreso"
-                 role="progressbar"
-                 aria-label="Progreso del cuestionario"
-                 aria-valuemin="0"
-                 aria-valuemax="3"
-                 aria-valuenow="0">
-                <div id="barra-progreso-interior"></div>
+                <div class="quiz-icono" aria-hidden="true">
+                    <span>?</span>
+                </div>
+            </div>
+
+            <div class="quiz-progreso">
+                <div class="quiz-progreso-texto">
+                    <span>Tu progreso</span>
+                    <span id="progreso">Pregunta 1 de 3</span>
+                </div>
+
+                <div id="barra-progreso"
+                     class="barra-progreso"
+                     role="progressbar"
+                     aria-label="Progreso del cuestionario"
+                     aria-valuemin="0"
+                     aria-valuemax="100"
+                     aria-valuenow="0">
+
+                    <div id="barra-progreso-interior"
+                         class="barra-progreso-interior">
+                    </div>
+                </div>
             </div>
 
             <form id="formulario-respuestas">
 
-                <h3 id="pregunta"></h3>
+                <div class="quiz-pregunta">
+                    <span class="quiz-pregunta-etiqueta">
+                        PREGUNTA
+                    </span>
 
-                <fieldset id="opciones">
-                    <legend>Selecciona una respuesta:</legend>
+                    <h3 id="pregunta" tabindex="-1">
+                        Cargando pregunta...
+                    </h3>
+                </div>
+
+                <fieldset id="opciones" class="quiz-opciones" aria-labelledby="pregunta">
                 </fieldset>
 
-                <p id="mensaje" aria-live="polite"></p>
+                <p id="mensaje" class="quiz-mensaje" role="status" aria-live="polite"></p>
 
                 <button type="submit" id="boton-responder">
                     Confirmar respuesta
@@ -55,6 +116,7 @@
             </form>
 
         </section>
+
     </main>
 
     <footer>

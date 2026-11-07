@@ -1,61 +1,36 @@
-
-/* =========================================
-   QUIZMASTER - ESTILO GENERAL
-   Versión 2: diseño tecnológico moderno
-========================================= */
-
 :root {
     --fondo: #081426;
     --fondo-secundario: #0d1e34;
-    --superficie: rgba(16, 42, 67, 0.88);
+    --superficie: rgba(16, 42, 67, .88);
     --superficie-clara: #163653;
     --cian: #22D3EE;
     --cian-claro: #67E8F9;
     --azul: #2563EB;
     --texto: #F1F5F9;
     --texto-secundario: #A9BED0;
-    --borde: rgba(34, 211, 238, 0.22);
-    --sombra: 0 20px 50px rgba(0, 0, 0, 0.28);
+    --borde: rgba(34, 211, 238, .22);
+    --sombra: 0 20px 50px rgba(0, 0, 0, .28);
     --radio: 18px;
 }
 
-/* Reinicio */
+/* REINICIO */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
     min-height: 100vh;
     font-family: "Segoe UI", Arial, sans-serif;
     color: var(--texto);
-
     background:
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(37, 99, 235, 0.17),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(34, 211, 238, 0.10),
-            transparent 30%
-        ),
+        radial-gradient(circle at 15% 15%, rgba(37, 99, 235, .17), transparent 32%),
+        radial-gradient(circle at 85% 80%, rgba(34, 211, 238, .10), transparent 30%),
         linear-gradient(135deg, #06101f, #0b1b30 55%, #081426);
-
     display: flex;
     flex-direction: column;
 }
 
-/* =========================================
-   ENCABEZADO Y NAVEGACIÓN
-========================================= */
+/* ENCABEZADO Y NAVEGACIÓN */
 
 header {
     width: 100%;
@@ -65,12 +40,10 @@ header {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-
-    background: rgba(8, 20, 38, 0.82);
+    background: rgba(8, 20, 38, .82);
     border-bottom: 1px solid var(--borde);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-
     position: relative;
     z-index: 2;
 }
@@ -80,7 +53,7 @@ header h1 {
     font-size: 1.9rem;
     font-weight: 800;
     letter-spacing: 1px;
-    text-shadow: 0 0 20px rgba(34, 211, 238, 0.25);
+    text-shadow: 0 0 20px rgba(34, 211, 238, .25);
 }
 
 nav {
@@ -93,31 +66,27 @@ nav {
 nav a {
     color: var(--texto-secundario);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: .95rem;
     font-weight: 600;
-
     padding: 10px 17px;
     border: 1px solid transparent;
     border-radius: 10px;
-
-    transition: 0.25s ease;
+    transition: .25s ease;
 }
 
 nav a:hover {
     color: var(--cian);
-    background: rgba(34, 211, 238, 0.08);
+    background: rgba(34, 211, 238, .08);
     border-color: var(--borde);
 }
 
 nav a[aria-current="page"] {
     color: var(--cian);
-    background: rgba(34, 211, 238, 0.12);
+    background: rgba(34, 211, 238, .12);
     border-color: var(--borde);
 }
 
-/* =========================================
-   CONTENIDO PRINCIPAL
-========================================= */
+/* CONTENIDO PRINCIPAL */
 
 main {
     width: 90%;
@@ -129,23 +98,13 @@ main {
 section {
     position: relative;
     overflow: hidden;
-
     padding: 38px;
     border-radius: var(--radio);
     border: 1px solid var(--borde);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(22, 54, 83, 0.94),
-            rgba(11, 30, 52, 0.96)
-        );
-
+    background: linear-gradient(145deg, rgba(22, 54, 83, .94), rgba(11, 30, 52, .96));
     box-shadow: var(--sombra);
-    animation: aparecer 0.6s ease;
+    animation: aparecer .6s ease;
 }
-
-/* Detalle luminoso superior */
 
 section::before {
     content: "";
@@ -154,15 +113,8 @@ section::before {
     left: 8%;
     width: 84%;
     height: 2px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--cian),
-        transparent
-    );
-
-    opacity: 0.8;
+    background: linear-gradient(90deg, transparent, var(--cian), transparent);
+    opacity: .8;
 }
 
 h2 {
@@ -179,14 +131,9 @@ h3 {
     margin-bottom: 18px;
 }
 
-p {
-    line-height: 1.7;
-    color: var(--texto-secundario);
-}
+p { line-height: 1.7; color: var(--texto-secundario); }
 
-/* =========================================
-   FORMULARIOS
-========================================= */
+/* FORMULARIOS */
 
 form {
     display: flex;
@@ -198,95 +145,62 @@ form {
 form label {
     color: var(--texto);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: .95rem;
 }
 
-input:not([type="radio"]),
-select {
+input:not([type="radio"]), select {
     width: 100%;
     padding: 14px 16px;
-
     color: var(--texto);
-    background: rgba(5, 18, 34, 0.75);
-
-    border: 1px solid rgba(169, 190, 208, 0.22);
+    background: rgba(5, 18, 34, .75);
+    border: 1px solid #8298AD;
     border-radius: 11px;
-
     font-size: 1rem;
     font-family: inherit;
-
-    transition: border-color 0.25s, box-shadow 0.25s;
+    transition: border-color .25s, box-shadow .25s;
 }
 
-input::placeholder {
-    color: #8298AD;
-}
-
-select {
-    cursor: pointer;
-}
+input::placeholder { color: #8298AD; }
+select { cursor: pointer; }
 
 select option {
     background: var(--fondo-secundario);
     color: var(--texto);
 }
 
-input:not([type="radio"]):focus,
-select:focus {
+input:not([type="radio"]):focus, select:focus {
     outline: none;
     border-color: var(--cian);
-
-    box-shadow:
-        0 0 0 3px rgba(34, 211, 238, 0.13),
-        0 0 16px rgba(34, 211, 238, 0.08);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, .13), 0 0 16px rgba(34, 211, 238, .08);
 }
 
-/* =========================================
-   BOTONES
-========================================= */
+/* BOTONES */
 
 button {
     width: fit-content;
     min-width: 150px;
-
     padding: 13px 24px;
     margin-top: 10px;
-
     color: #061525;
-    background: linear-gradient(
-        110deg,
-        var(--cian),
-        var(--cian-claro)
-    );
-
+    background: linear-gradient(110deg, var(--cian), var(--cian-claro));
     border: none;
     border-radius: 11px;
-
     font-size: 1rem;
     font-weight: 800;
     font-family: inherit;
-
     cursor: pointer;
-    transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s;
+    transition: transform .25s, box-shadow .25s, opacity .25s;
 }
 
 button:hover:not(:disabled) {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25);
+    box-shadow: 0 8px 24px rgba(34, 211, 238, .25);
 }
 
-button:active:not(:disabled) {
-    transform: translateY(0);
-}
+button:active:not(:disabled) { transform: translateY(0); }
+button:disabled { opacity: .5; cursor: not-allowed; }
 
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* =========================================
-   CUESTIONARIO
-========================================= */
+/* CUESTIONARIO */
 
 #saludo-estudiante {
     margin-bottom: 20px;
@@ -300,15 +214,11 @@ button:disabled {
     margin-bottom: 10px;
 }
 
-/* Barra de progreso */
-
 #barra-progreso {
     width: 100%;
     height: 10px;
-
     margin: 12px 0 30px;
-
-    background: rgba(3, 12, 25, 0.8);
+    background: rgba(3, 12, 25, .8);
     border: 1px solid var(--borde);
     border-radius: 20px;
     overflow: hidden;
@@ -317,25 +227,13 @@ button:disabled {
 #barra-progreso-interior {
     width: 0;
     height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        var(--azul),
-        var(--cian)
-    );
-
+    background: linear-gradient(90deg, var(--azul), var(--cian));
     border-radius: inherit;
-    box-shadow: 0 0 14px rgba(34, 211, 238, 0.45);
-
-    transition: width 0.45s ease;
+    box-shadow: 0 0 14px rgba(34, 211, 238, .45);
+    transition: width .45s ease;
 }
 
-/* Opciones de respuesta */
-
-fieldset {
-    border: none;
-    min-width: 0;
-}
+fieldset { border: none; min-width: 0; }
 
 legend {
     color: var(--texto);
@@ -354,23 +252,19 @@ legend {
     display: flex;
     align-items: center;
     gap: 12px;
-
     padding: 15px 17px;
-
     color: var(--texto-secundario);
-    background: rgba(5, 18, 34, 0.65);
-
-    border: 1px solid rgba(169, 190, 208, 0.16);
+    background: rgba(5, 18, 34, .65);
+    border: 1px solid rgba(169, 190, 208, .16);
     border-radius: 12px;
-
     cursor: pointer;
-    transition: 0.25s ease;
+    transition: .25s ease;
 }
 
 #opciones label:hover {
     color: var(--texto);
     border-color: var(--cian);
-    background: rgba(34, 211, 238, 0.08);
+    background: rgba(34, 211, 238, .08);
     transform: translateX(4px);
 }
 
@@ -385,10 +279,8 @@ legend {
 #opciones label:has(input:checked) {
     color: var(--cian-claro);
     border-color: var(--cian);
-    background: rgba(34, 211, 238, 0.12);
+    background: rgba(34, 211, 238, .12);
 }
-
-/* Mensajes */
 
 #mensaje {
     min-height: 28px;
@@ -397,55 +289,49 @@ legend {
     color: var(--cian-claro);
 }
 
-/* =========================================
-   RESULTADOS
-========================================= */
+/* RESULTADOS */
 
 #nombre-estudiante {
     color: var(--cian-claro);
+    font-size: 1.2rem;
     font-weight: 700;
+    margin: 15px 0;
 }
 
 #puntuacion {
-    margin: 15px 0;
-    color: var(--texto);
-    font-size: 1.3rem;
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
     font-weight: 700;
+    margin: 15px 0;
 }
 
 #porcentaje {
-    display: inline-block;
-    margin: 15px 0 25px;
-
+    display: block;
+    margin: 20px 0 30px;
     color: var(--cian);
-    font-size: clamp(2.8rem, 8vw, 4.5rem);
+    font-size: clamp(3rem, 8vw, 4.5rem);
     font-weight: 900;
-    line-height: 1;
-
-    text-shadow: 0 0 25px rgba(34, 211, 238, 0.28);
+    line-height: 1.1;
+    text-shadow: 0 0 25px rgba(34, 211, 238, .2);
 }
-
-/* Revisión de respuestas */
 
 #revision {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
-#revision > div {
+#revision > article {
     padding: 20px;
-
-    background: rgba(5, 18, 34, 0.65);
-    border: 1px solid rgba(169, 190, 208, 0.16);
+    background: rgba(5, 18, 34, .65);
+    border: 1px solid rgba(169, 190, 208, .16);
     border-left: 3px solid var(--cian);
     border-radius: 12px;
-
-    transition: transform 0.25s, border-color 0.25s;
+    transition: transform .25s, border-color .25s;
 }
 
-#revision > div:hover {
+#revision > article:hover {
     transform: translateY(-2px);
     border-color: var(--cian);
 }
@@ -456,27 +342,22 @@ legend {
     margin-bottom: 12px;
 }
 
-#revision p {
-    margin-top: 8px;
-    overflow-wrap: anywhere;
-}
+#revision p { margin-top: 8px; overflow-wrap: anywhere; }
 
 #revision p:last-child {
     color: var(--texto);
     font-weight: 700;
 }
 
-/* Enlaces */
+/* ENLACES Y ERRORES */
 
 main a {
     display: inline-block;
     margin-top: 25px;
-
     color: var(--cian);
     font-weight: 700;
     text-decoration: none;
-
-    transition: color 0.2s;
+    transition: color .2s;
 }
 
 main a:hover {
@@ -484,132 +365,473 @@ main a:hover {
     text-decoration: underline;
 }
 
-/* =========================================
-   MENSAJES DE ERROR
-========================================= */
-
 #error {
     color: #FCA5A5;
     font-weight: 600;
     min-height: 22px;
 }
 
-/* =========================================
-   PIE DE PÁGINA
-========================================= */
+/* PIE DE PÁGINA */
 
 footer {
     padding: 22px;
     margin-top: auto;
-
     text-align: center;
     color: #8298AD;
-    font-size: 0.9rem;
-
-    background: rgba(5, 15, 29, 0.7);
+    font-size: .9rem;
+    background: rgba(5, 15, 29, .7);
     border-top: 1px solid var(--borde);
 }
 
-/* =========================================
-   ANIMACIONES
-========================================= */
+/* ANIMACIONES Y ACCESIBILIDAD */
 
 @keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* =========================================
-   ACCESIBILIDAD
-========================================= */
+@keyframes robot-flotando {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
 
 :focus-visible {
     outline: 3px solid var(--cian-claro);
     outline-offset: 4px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* =========================================
-   DISEÑO RESPONSIVE
-========================================= */
+/* RESPONSIVE GENERAL */
 
 @media (max-width: 650px) {
-
     header {
         padding: 20px 5%;
         flex-direction: column;
         text-align: center;
     }
 
-    header h1 {
-        font-size: 1.7rem;
-    }
-
-    nav {
-        justify-content: center;
-        gap: 5px;
-    }
-
-    nav a {
-        padding: 9px 11px;
-        font-size: 0.88rem;
-    }
-
-    main {
-        width: 92%;
-        margin: 30px auto;
-    }
-
-    section {
-        padding: 25px 20px;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    h3 {
-        font-size: 1.1rem;
-    }
-
-    button {
-        width: 100%;
-    }
-
-    #revision > div {
-        padding: 16px;
-    }
+    header h1 { font-size: 1.7rem; }
+    nav { justify-content: center; gap: 5px; }
+    nav a { padding: 9px 11px; font-size: .88rem; }
+    main { width: 92%; margin: 30px auto; }
+    section { padding: 25px 20px; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.1rem; }
+    button { width: 100%; }
+    #revision > article { padding: 16px; }
 }
 
 @media (max-width: 380px) {
-
-    nav {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav a {
-        width: 100%;
-        text-align: center;
-    }
-
-    section {
-        padding: 22px 16px;
-    }
+    nav { flex-direction: column; width: 100%; }
+    nav a { width: 100%; text-align: center; }
+    section { padding: 22px 16px; }
 }
+
+/* IDENTIDAD VISUAL */
+
+.marca-quizmaster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.logo-quizmaster {
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 9px rgba(34, 211, 238, .35));
+    transition: transform .3s ease;
+}
+
+.logo-quizmaster:hover { transform: rotate(-8deg) scale(1.08); }
+
+.marca-texto h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.marca-texto h1 span,
+.inicio-presentacion h2 span,
+.mascota-quizmaster span,
+.inicio-tecnologias span,
+.inicio-formulario h3,
+.quiz-etiqueta,
+.quiz-pregunta-etiqueta,
+.quiz-progreso-texto span:last-child,
+.quiz-opciones legend {
+    color: var(--cian);
+}
+
+.marca-texto p {
+    margin: 4px 0 0;
+    font-size: .85rem;
+    letter-spacing: 1px;
+    opacity: .8;
+}
+
+@media (max-width: 480px) {
+    .logo-quizmaster { width: 48px; height: 48px; }
+    .marca-texto h1 { font-size: 1.6rem; }
+}
+
+/* MASCOTA */
+
+.mascota-quizmaster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 25px auto;
+    animation: robot-flotando 3s ease-in-out 1; /* WCAG 2.2.2: dura menos de 5 s */
+}
+
+.mascota-quizmaster svg {
+    width: 145px;
+    max-width: 100%;
+    filter: drop-shadow(0 0 12px rgba(34, 211, 238, .25));
+}
+
+.mascota-quizmaster span {
+    font-weight: 600;
+    font-size: .95rem;
+}
+
+/* DISTRIBUCIÓN DE INICIO */
+
+.inicio-seccion { width: 100%; }
+
+.inicio-layout {
+    display: grid;
+    grid-template-columns: 1fr .9fr;
+    align-items: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.inicio-presentacion {
+    text-align: center;
+    padding: 15px;
+}
+
+.inicio-presentacion h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.inicio-descripcion {
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.inicio-presentacion .mascota-quizmaster { margin: 20px auto; }
+.inicio-presentacion .mascota-quizmaster svg { width: 175px; }
+
+.inicio-tecnologias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.inicio-tecnologias span {
+    padding: 8px 15px;
+    border: 1px solid rgba(34, 211, 238, .4);
+    border-radius: 20px;
+    font-size: .85rem;
+    font-weight: 600;
+    background: rgba(34, 211, 238, .07);
+}
+
+.inicio-formulario {
+    padding: 30px;
+    border: 1px solid rgba(34, 211, 238, .3);
+    border-radius: 20px;
+    background: rgba(16, 42, 67, .65);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .2);
+}
+
+.inicio-formulario h3 {
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+}
+
+.inicio-formulario > p {
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.inicio-formulario form {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+/* DISEÑO DE LA PANTALLA DE QUIZ */
+
+.quiz-main {
+    width: 100%;
+    max-width: 950px;
+    margin: 35px auto;
+    padding: 0 18px;
+}
+
+.quiz-contenedor {
+    padding: 22px;
+    border: 1px solid rgba(34, 211, 238, .3);
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(16, 42, 67, .96), rgba(8, 20, 38, .98));
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .25);
+}
+
+.quiz-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(34, 211, 238, .18);
+}
+
+.quiz-etiqueta, .quiz-pregunta-etiqueta {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.quiz-encabezado h2 {
+    margin: 9px 0;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.quiz-encabezado p { margin: 0; opacity: .8; }
+
+.quiz-icono {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    background: rgba(34, 211, 238, .12);
+    border: 1px solid rgba(34, 211, 238, .4);
+    color: var(--cian);
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.quiz-progreso { margin: 25px 0; }
+
+.quiz-progreso-texto {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: .9rem;
+}
+
+.quiz-progreso-texto span:last-child { font-weight: 700; }
+
+.barra-progreso {
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #071321;
+    border: 1px solid rgba(34, 211, 238, .2);
+}
+
+.barra-progreso-interior {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #0891B2, var(--cian));
+    box-shadow: 0 0 12px rgba(34, 211, 238, .45);
+    transition: width .4s ease;
+}
+
+.quiz-pregunta {
+    margin: 15px 0;
+    padding: 23px;
+    border-radius: 15px;
+    background: rgba(34, 211, 238, .06);
+    border: 1px solid rgba(34, 211, 238, .18);
+}
+
+.quiz-pregunta h3 {
+    margin: 12px 0 0;
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+.quiz-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 12px 0;
+    padding: 20px;
+    border: 1px solid rgba(34, 211, 238, .2);
+    border-radius: 15px;
+}
+
+.quiz-opciones legend { padding: 0 8px; font-weight: 700; }
+
+.quiz-opciones label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow-wrap: anywhere;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid rgba(34, 211, 238, .2);
+    border-radius: 11px;
+    background: rgba(8, 20, 38, .6);
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.quiz-opciones label:hover {
+    background: rgba(34, 211, 238, .1);
+    border-color: var(--cian);
+    transform: translateX(3px);
+}
+
+.quiz-opciones input[type="radio"] {
+    accent-color: var(--cian);
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+.quiz-mensaje {
+    min-height: 24px;
+    margin: 5px 0;
+    font-weight: 600;
+}
+
+.quiz-contenedor button {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #0891B2, var(--cian));
+    color: var(--fondo);
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.quiz-contenedor button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(34, 211, 238, .25);
+}
+
+.quiz-contenedor button:focus-visible,
+.quiz-opciones label:focus-within {
+    outline: 3px solid #FFF;
+    outline-offset: 3px;
+}
+
+/* PÁGINA DE RESULTADOS */
+
+.resultados-main {
+    max-width: 900px;
+    width: 90%;
+    margin: 45px auto;
+}
+
+.resultados-contenedor {
+    padding: 35px;
+    text-align: center;
+    background: linear-gradient(145deg, rgba(16, 42, 67, .96), rgba(9, 28, 48, .98));
+    border: 1px solid rgba(34, 211, 238, .2);
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .25);
+}
+
+.resultados-contenedor h2, .resultados-contenedor h3 { color: var(--texto); }
+.resultados-contenedor h2 { margin-bottom: 20px; }
+.resultados-contenedor h3 { margin: 30px 0 20px; }
+
+.resultados-contenedor > a {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    color: var(--fondo);
+    background: var(--cian);
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.resultados-contenedor > a:hover {
+    background: var(--cian-claro);
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE ESPECÍFICO */
+
+@media (max-width: 750px) {
+    .inicio-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 10px;
+    }
+
+    .inicio-presentacion h2 { font-size: 2rem; }
+    .inicio-presentacion .mascota-quizmaster svg { width: 135px; }
+    .inicio-formulario { padding: 22px; }
+}
+
+@media (max-width: 500px) {
+    .quiz-main { margin: 15px auto; padding: 0 10px; }
+    .quiz-contenedor { padding: 15px 11px; }
+    .quiz-icono { width: 30px; height: 30px; font-size: 1.8rem; }
+    .quiz-pregunta { padding: 12px; }
+    .quiz-pregunta h3 { font-size: 1.1rem; }
+    .quiz-opciones { padding: 14px; }
+    .quiz-opciones label { padding: 12px; }
+}
+
+@media (max-width: 650px) {
+    .resultados-main { width: 94%; margin: 25px auto; }
+    .resultados-contenedor { padding: 22px 15px; }
+}
+
+/*MOVIMIENTO REDUCIDO*/
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+
+    .mascota-quizmaster, .inicio-layout * {
+        animation: none !important;
+    }
+
+    .inicio-layout * { transition: none !important; }
+
+    .quiz-opciones label,
+    .quiz-contenedor button,
+    .barra-progreso-interior { transition: none; }
+}
+
+/* LISTA DE TECNOLOGÍAS, AVISOS Y ESTADOS */
+
+.inicio-tecnologias { list-style: none; }
+.aviso-js { padding: 14px 18px; margin-bottom: 20px; color: var(--texto); background: rgba(37, 99, 235, .25); border: 1px solid var(--cian); border-radius: 12px; }
+#nombre[aria-invalid="true"], #categoria[aria-invalid="true"], #dificultad[aria-invalid="true"] { border-color: #FCA5A5; box-shadow: 0 0 0 2px rgba(252, 165, 165, .35); }
+#pregunta:focus { outline: none; }
+#pregunta:focus-visible { outline: 3px solid var(--cian-claro); outline-offset: 4px; }
+.quiz-opciones label:has(input:disabled) { cursor: default; transform: none; }

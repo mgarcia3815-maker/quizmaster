@@ -1,29 +1,28 @@
-
-// 1. Obtener los datos guardados por el cuestionario
+// Obtener los datos guardados por el cuestionario
 const datosGuardados = sessionStorage.getItem('resultados');
 
-// 2. Seleccionar los elementos HTML
+// Seleccionar los elementos HTML
 const nombreEstudiante = document.querySelector('#nombre-estudiante');
 const puntuacionHTML = document.querySelector('#puntuacion');
 const porcentajeHTML = document.querySelector('#porcentaje');
 const revisionHTML = document.querySelector('#revision');
 
-// 3. Comprobar si existen resultados
+// Comprobar si existen resultados
 if (datosGuardados === null) {
     nombreEstudiante.textContent = 'No hay resultados disponibles.';
     puntuacionHTML.textContent = 'Primero debes completar un cuestionario.';
     porcentajeHTML.textContent = '0%';
 } else {
 
-    // 4. Convertir los datos guardados en un objeto JavaScript
+    // Convertir los datos guardados en un objeto JavaScript
     const resultados = JSON.parse(datosGuardados);
 
-    // 5. Calcular el porcentaje obtenido
+    // Calcular el porcentaje obtenido
     const porcentaje = Math.round(
         (resultados.puntuacion / resultados.total) * 100
     );
 
-    // 6. Mostrar los datos del estudiante
+    // Mostrar los datos del estudiante
     nombreEstudiante.textContent = `Estudiante: ${resultados.nombre}`;
 
     puntuacionHTML.textContent =
@@ -31,12 +30,12 @@ if (datosGuardados === null) {
 
     porcentajeHTML.textContent = `${porcentaje}%`;
 
-    // 7. Mostrar la revisión de respuestas
+    // Mostrar la revisión de respuestas
     revisionHTML.replaceChildren();
 
     resultados.respuestas.forEach((respuesta, indice) => {
 
-        const contenedor = document.createElement('div');
+        const contenedor = document.createElement('article');
         const pregunta = document.createElement('h4');
         const respuestaUsuario = document.createElement('p');
         const respuestaCorrecta = document.createElement('p');

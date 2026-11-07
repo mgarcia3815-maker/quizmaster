@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,63 +13,196 @@
 <body>
 
     <header>
-        <h1>QuizMaster</h1>
-        <p>Pon a prueba tus conocimientos</p>
+        <div class="marca-quizmaster">
+            <svg class="logo-quizmaster"
+                 viewBox="0 0 100 100"
+                 aria-hidden="true"
+                 focusable="false"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <circle cx="45" cy="45" r="34"
+                        fill="none"
+                        stroke="#22D3EE"
+                        stroke-width="12"/>
+
+                <path d="M28 45 L41 58 L72 25"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-width="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+
+                <path d="M66 68 L87 89"
+                      fill="none"
+                      stroke="#22D3EE"
+                      stroke-width="12"
+                      stroke-linecap="round"/>
+            </svg>
+
+            <div class="marca-texto">
+                <h1>Quiz<span>Master</span></h1>
+                <p>Tu espacio para practicar programación</p>
+            </div>
+        </div>
 
         <nav aria-label="Navegación principal">
-            <a href="index.html">Inicio</a>
+            <a href="index.html" aria-current="page">Inicio</a>
             <a href="quiz.html">Cuestionario</a>
             <a href="resultados.html">Resultados</a>
         </nav>
     </header>
 
     <main>
-        <section aria-labelledby="bienvenida">
-            <h2 id="bienvenida">¡Bienvenido a QuizMaster!</h2>
+        <noscript><p class="aviso-js">Este sitio necesita JavaScript activado para funcionar.</p></noscript>
+        <section class="inicio-seccion" aria-labelledby="bienvenida">
 
-            <p>
-                Aprende, practica y demuestra cuánto sabes
-                sobre desarrollo web.
-            </p>
+            <div class="inicio-layout">
 
-            <form id="formulario-inicio">
+                <div class="inicio-presentacion">
 
-                <div>
-                    <label for="nombre">Nombre del estudiante:</label>
-                    <input
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        placeholder="Escribe tu nombre"
-                        required
-                    >
+                    <h2 id="bienvenida">
+                        ¡Bienvenido a
+                        <span>QuizMaster!</span>
+                    </h2>
+
+                    <p class="inicio-descripcion">
+                        Aprende, practica y demuestra cuánto sabes
+                        sobre desarrollo web.
+                    </p>
+
+                    <div class="mascota-quizmaster">
+
+                        <svg viewBox="0 0 180 190"
+                             role="img"
+                             aria-label="Robot de QuizMaster"
+                             xmlns="http://www.w3.org/2000/svg">
+
+                            <path d="M90 25 V12"
+                                  stroke="#22D3EE"
+                                  stroke-width="5"
+                                  stroke-linecap="round"/>
+                            <circle cx="90" cy="9" r="7" fill="#22D3EE"/>
+
+                            <rect x="30" y="30" width="120" height="90"
+                                  rx="28" fill="#DCEEFF"
+                                  stroke="#22D3EE" stroke-width="5"/>
+
+                            <rect x="41" y="42" width="98" height="66"
+                                  rx="20" fill="#081426"/>
+
+                            <circle cx="69" cy="72" r="7" fill="#22D3EE"/>
+                            <circle cx="111" cy="72" r="7" fill="#22D3EE"/>
+
+                            <path d="M72 88 Q90 103 108 88"
+                                  fill="none" stroke="#22D3EE"
+                                  stroke-width="4" stroke-linecap="round"/>
+
+                            <rect x="20" y="58" width="12" height="35"
+                                  rx="6" fill="#22D3EE"/>
+                            <rect x="148" y="58" width="12" height="35"
+                                  rx="6" fill="#22D3EE"/>
+
+                            <rect x="49" y="124" width="82" height="55"
+                                  rx="20" fill="#DCEEFF"
+                                  stroke="#22D3EE" stroke-width="4"/>
+
+                            <circle cx="90" cy="151" r="15"
+                                    fill="#081426"
+                                    stroke="#22D3EE"
+                                    stroke-width="3"/>
+
+                            <path d="M81 151 L88 158 L101 143"
+                                  fill="none" stroke="#FFFFFF"
+                                  stroke-width="4"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+
+                            <path d="M49 139 L31 151"
+                                  stroke="#DCEEFF"
+                                  stroke-width="10"
+                                  stroke-linecap="round"/>
+
+                            <path d="M131 139 L149 151"
+                                  stroke="#DCEEFF"
+                                  stroke-width="10"
+                                  stroke-linecap="round"/>
+                        </svg>
+
+                        <span>¡Vamos a practicar!</span>
+                    </div>
+
+                    <ul class="inicio-tecnologias" aria-label="Tecnologías">
+                        <li><span>HTML</span></li>
+                        <li><span>CSS</span></li>
+                        <li><span>JavaScript</span></li>
+                    </ul>
+
                 </div>
 
-                <div>
-                    <label for="categoria">Selecciona una categoría:</label>
-                    <select id="categoria" name="categoria" required>
-                        <option value="">Elige una categoría</option>
-                        <option value="html">HTML</option>
-                        <option value="css">CSS</option>
-                        <option value="javascript">JavaScript</option>
-                    </select>
+                <div class="inicio-formulario">
+
+                    <h3>Comienza tu cuestionario</h3>
+
+                    <p>
+                        Completa tus datos y selecciona
+                        el reto que deseas realizar.
+                    </p>
+
+                    <form id="formulario-inicio" novalidate>
+
+                        <div>
+                            <label for="nombre">
+                                Nombre del estudiante:
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nombre"
+                                name="nombre"
+                                autocomplete="name"
+                                placeholder="Escribe tu nombre"
+                                required
+                            >
+                        </div>
+
+                        <div>
+                            <label for="categoria">
+                                Selecciona una categoría:
+                            </label>
+
+                            <select id="categoria" name="categoria" required>
+                                <option value="">Elige una categoría</option>
+                                <option value="html">HTML</option>
+                                <option value="css">CSS</option>
+                                <option value="javascript">JavaScript</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="dificultad">
+                                Selecciona la dificultad:
+                            </label>
+
+                            <select id="dificultad" name="dificultad" required>
+                                <option value="">Elige una dificultad</option>
+                                <option value="facil">Fácil</option>
+                                <option value="medio">Medio</option>
+                                <option value="dificil">Difícil</option>
+                            </select>
+                        </div>
+
+                        <p id="error" role="alert"></p>
+
+                        <button type="submit">
+                            Comenzar cuestionario
+                        </button>
+
+                    </form>
+
                 </div>
 
-                <div>
-                    <label for="dificultad">Selecciona la dificultad:</label>
-                    <select id="dificultad" name="dificultad" required>
-                        <option value="">Elige una dificultad</option>
-                        <option value="facil">Fácil</option>
-                        <option value="medio">Medio</option>
-                        <option value="dificil">Difícil</option>
-                    </select>
-                </div>
-                
-                <p id="error" aria-live="polite"></p>
+            </div>
 
-                <button type="submit">Comenzar cuestionario</button>
-
-            </form>
         </section>
     </main>
 
