@@ -22,31 +22,13 @@ function limpiarErrores() {
     });
 }
 
-// Campos que siguen marcados con error
-function camposConError() {
-    return campos.filter(function(campo) {
-        return document.querySelector(campo.selector).getAttribute('aria-invalid') === 'true';
-    });
-}
-
-// Muestra solo lo que aún falta; si no falta nada, borra el aviso
-function actualizarAviso() {
-    const pendientes = camposConError();
-    error.textContent = pendientes.length === 0
-        ? ''
-        : 'Falta completar: ' + pendientes.map(function(c) { return c.nombre; }).join(', ') + '.';
-}
-
-// Al corregir un campo, se retira su marca de error y se actualiza el aviso
+// Al corregir un campo, se retira su marca de error
 campos.forEach(function(campo) {
     const el = document.querySelector(campo.selector);
     el.addEventListener('input', function() {
-        if (el.getAttribute('aria-invalid') === 'true' && el.value.trim() !== '') {
+        if (el.value.trim() !== '') {
             el.removeAttribute('aria-invalid');
             el.removeAttribute('aria-describedby');
-            actualizarAviso();
-        } else if (camposConError().length === 0) {
-            error.textContent = '';
         }
     });
 });
