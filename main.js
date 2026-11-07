@@ -1,4 +1,3 @@
-
 const formulario = document.querySelector('#formulario-inicio');
 const error = document.querySelector('#error');
  
