@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuizMaster | Inicio</title>
+
+    <link rel="stylesheet" href="estilo.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>QuizMaster</h1>
+        <p>Pon a prueba tus conocimientos</p>
+
+        <nav aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="quiz.html">Cuestionario</a>
+            <a href="resultados.html">Resultados</a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="bienvenida">
+            <h2 id="bienvenida">¡Bienvenido a QuizMaster!</h2>
+
+            <p>
+                Aprende, practica y demuestra cuánto sabes
+                sobre desarrollo web.
+            </p>
+
+            <form id="formulario-inicio">
+
+                <div>
+                    <label for="nombre">Nombre del estudiante:</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Escribe tu nombre"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="categoria">Selecciona una categoría:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Elige una categoría</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JavaScript</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="dificultad">Selecciona la dificultad:</label>
+                    <select id="dificultad" name="dificultad" required>
+                        <option value="">Elige una dificultad</option>
+                        <option value="facil">Fácil</option>
+                        <option value="medio">Medio</option>
+                        <option value="dificil">Difícil</option>
+                    </select>
+                </div>
+                
+                <p id="error" aria-live="polite"></p>
+
+                <button type="submit">Comenzar cuestionario</button>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>QuizMaster © 2026 | Proyecto académico</p>
+    </footer>
+
+</body>
+</html>

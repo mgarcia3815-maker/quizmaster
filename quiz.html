@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster | Cuestionario</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="quiz.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>QuizMaster</h1>
+
+        <nav aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="quiz.html" aria-current="page">Cuestionario</a>
+            <a href="resultados.html">Resultados</a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="titulo-quiz">
+
+            <h2 id="titulo-quiz">¡Demuestra lo que sabes!</h2>
+
+            <p id="saludo-estudiante"></p>
+
+            <p id="progreso">Pregunta 1 de 3</p>
+
+            <div id="barra-progreso"
+                 role="progressbar"
+                 aria-label="Progreso del cuestionario"
+                 aria-valuemin="0"
+                 aria-valuemax="3"
+                 aria-valuenow="0">
+                <div id="barra-progreso-interior"></div>
+            </div>
+
+            <form id="formulario-respuestas">
+
+                <h3 id="pregunta"></h3>
+
+                <fieldset id="opciones">
+                    <legend>Selecciona una respuesta:</legend>
+                </fieldset>
+
+                <p id="mensaje" aria-live="polite"></p>
+
+                <button type="submit" id="boton-responder">
+                    Confirmar respuesta
+                </button>
+
+            </form>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>QuizMaster © 2026 | Proyecto académico</p>
+    </footer>
+
+</body>
+</html>
