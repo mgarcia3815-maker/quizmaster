@@ -1,4 +1,4 @@
 Esta carpeta contiene las capturas de pantalla de la aplicación QuizMaster 
 antes y después de las correcciones de accesibilidad. 
-Los archivos corresponden a la versión final. 
+Los archivos corresponden a la versión final y las WhatsApp Image son las primeras capturas hechas
 Se usan como evidencia en el informe del proyecto.
