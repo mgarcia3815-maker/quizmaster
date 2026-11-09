@@ -1,4 +1,4 @@
 Esta carpeta contiene las capturas de pantalla de la aplicación QuizMaster 
 antes y después de las correcciones de accesibilidad. 
-Los archivos que empiezan con "antes_" corresponden a la versión inicial y los que empiezan con "despues_" a la versión final. 
+Los archivos corresponden a la versión final. 
 Se usan como evidencia en el informe del proyecto.
